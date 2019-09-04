@@ -139,3 +139,4 @@ Emulators appear in ES as long as they have ROMs in them. Simply remove the ROM 
 1. If you are having issues with keyboard characters, i.e. typing `~` becomes something else, configure the keyboard layout:
     1. `sudo raspi-config`
     2. **Localisation Options** -> **Change Keyboard Layout** -> **Generic 105-key (Intl) PC** -> **English (US)**
+2. If you are having issues with lagged/crackling audio on SNES, switch the emulator to `lr-snes9x2002`.
