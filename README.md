@@ -38,51 +38,31 @@ Upon booting up the RetroPie for the first time, it will run a few scripts to ta
 
 Emulation Station will then be launched, and you will need to set up your first controller. A keyboard is recommended. Simply follow on-screen instructions.
 
+### Switching Between Shell and Emulation Station
+
+- To go to Shell from Emulation Station: `F4`
+- To go to Emulation Station from Shell: `emulationstation`
+
 ### Configure Wi-Fi
 
-Return to Shell (pres `F4`).
+1. `sudo raspi-config`
+2. **Network Options** -> **Wi-Fi**
 
-```sh
-$ sudo raspi-config
-```
+### Enabling SSH and SFTP
 
-Configure **Network Options**, then follow through with setting the SSID and password.
-
-### Configure SSH
-
-In `raspi-config`, go to **Interfacing Options** and enable SSH there.
+1. `sudo raspi-config`
+2. **Interfacing Options** -> **SSH** -> enable
 
 ### Configuring the Display
 
-If you see that the display is not fullscreen, do the following:
-
-```sh
-sudo nano /boot/config.txt
-```
-
-Uncomment `# disable_overscan=1`.
+If you see that the display is not fullscreen:
+1. `sudo nano /boot/config.txt`
+2. Uncomment `# disable_overscan=1`
 
 ### Changing the splash screen
 
-SSH/SFTP into the Pi and copy your splash image to `/home/pi/RetroPie/splashscreens`. Then from Emulation Station, go to RetroPie setup -> **Change splashscreen**.
-
-## Updating RetroPie
-
-Run the setup script at `~/RetroPie-Setup/retropie_setup.sh`. First choose to update the setup script, then select **Update** to update all packages.
-
-## Connecting to the RetroPie via SFTP
-
-Ensure you are connected to the same network as the RetroPie, then use any method you like to establish an SFTP connection with the following config:
-
-- Protocol: SFTP
-- Address: `<address>`
-- Port: `22`
-- User name: `pi` (default)
-- Password: `raspberry` (default)
-
-To obtain the host address of the RetroPie. Either use its external IP or its host name, if available:
-  - To get the IP, run `ifconfig` (it's also displayed at the top when you start its Shell)
-  - To get the host name, run `hostname -f`
+1. SSH/SFTP into the Pi and copy your splash image to `/home/pi/RetroPie/splashscreens`
+2. From Emulation Station menu, go to RetroPie -> **Splash Screens** -> **Choose splashscreen** -> **Own/Extra splashscreens**
 
 ## File System Overview
 
@@ -100,18 +80,58 @@ Each emulator requires respective BIOS files to run. BIOS files are not included
 
 Simply add/remove ROMs to manage your games.
 
-
 ### Emulator Configurations
 
 > `opts/retropie/configs`
 
-## Shortcuts
+## Updating
+
+Run the setup script at `~/RetroPie-Setup/retropie_setup.sh`. First choose to update the setup script, then select **Update** to update all packages.
+
+## Themes
+
+### Browsing the Theme Gallery
+
+1. From ES, go to RetroPie -> **ES Themes**
+2. Select **Download Theme Gallery**
+3. When done, a new option will open up: **View or Update Theme Gallery** -> **View Theme Gallery**
+
+### Installing a Theme
+
+1. From ES, go to RetroPie -> **ES Themes**
+2. Select a theme to install
+3. Return to ES, toggle Start menu -> **UI Settings** -> pick from **Theme Set**
+
+## Connecting to the RetroPie via SFTP
+
+Ensure you are connected to the same network as the RetroPie, then use any method you like to establish an SFTP connection with the following config:
+
+- Protocol: SFTP
+- Address: `<address>`
+- Port: `22`
+- User name: `pi` (default)
+- Password: `raspberry` (default)
+
+To obtain the host address of the RetroPie. Either use its external IP or its host name, if available:
+  - To get the IP, run `ifconfig` (it's also displayed at the top when you start its Shell)
+  - To get the host name, run `hostname -f`
+
+## Common Commands
 
 - When you're in Emulation Station, you can exit to Shell by pressing `F4` followed by any key. Note that this is assuming default key mapping.
 - When you're in Shell, you can start Emulation Station via `emulationstation`.
 - To shutdown the Pi: `sudo shutdown -h now`
 - To reboot the Pi: `sudo reboot`
 
+## Pairing PS4 Controller via Bluetooth
+
+1. `sudo ~/RetroPie-Setup/retropie_setup.sh`
+2. **COnfiguration / tools** -> **804 bluetooth** -> **Register and Connect to Bluetooth Device**
+3. Put PS4 controller in pairing mode by holding **Share** button first followed by **PS** button until the LED flashes
+4. When paired, choose the default security mode
+
 ## Caveats
 
-1. If you are having issues typing `~` in RetroPie Shell, try `Shift` + `\`.
+1. If you are having issues with keyboard characters, i.e. typing `~` becomes something else, configure the keyboard layout:
+    1. `sudo raspi-config`
+    2. **Localisation Options** -> **Change Keyboard Layout** -> **Generic 105-key (Intl) PC** -> **English (US)**
