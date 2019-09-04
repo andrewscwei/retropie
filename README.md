@@ -28,7 +28,7 @@ Copy the downloaded image to the disk:
 $ sudo dd bs=1m if=<path to .img> of=/dev/rdisk<disk# from diskutil> conv=sync
 ```
 
-This process takes a while. While waiting, you can sned a `SIGINFO` signal by pressing `Ctrl+T` to track the progress.
+This process takes a while. While waiting, you can send a `SIGINFO` signal by pressing `Ctrl+T` to track the progress.
 
 After the image is copied over, you are done. You can insert the SD card to your RaspberryPi and boot up RetroPie for the first time.
 
@@ -68,13 +68,13 @@ If you see that the display is not fullscreen:
 
 ### BIOS
 
-> `~/RetroPie/BIOS`
+> Location: `~/RetroPie/BIOS`
 
-Each emulator requires respective BIOS files to run. BIOS files are not included by default. Seek official docs to determine what BIOS files are required for the emulators you intend to use.
+Some emulators require designated BIOS files to run. BIOS files are not included by default. Seek official docs to determine what BIOS files are required for the emulators you intend to use.
 
 ### ROMs
 
-> `~/RetroPie/roms`
+> Location: `~/RetroPie/roms`
 
 > Official docs: https://github.com/RetroPie/RetroPie-Setup/wiki/Transferring-Roms
 
@@ -82,7 +82,7 @@ Simply add/remove ROMs to manage your games.
 
 ### Emulator Configurations
 
-> `opts/retropie/configs`
+> Location: `opts/retropie/configs`
 
 ## Updating
 
@@ -116,19 +116,23 @@ To obtain the host address of the RetroPie. Either use its external IP or its ho
   - To get the IP, run `ifconfig` (it's also displayed at the top when you start its Shell)
   - To get the host name, run `hostname -f`
 
+## Pairing PS4 Controller via Bluetooth
+
+1. `sudo ~/RetroPie-Setup/retropie_setup.sh`
+2. **Configuration / tools** -> **804 bluetooth** -> **Register and Connect to Bluetooth Device**
+3. Put PS4 controller in pairing mode by holding **Share** button first followed by **PS** button until the LED flashes
+4. When paired, choose the default (`DisplayYesNo`) as security mode
+
+## Hiding Certain Emulators
+
+Emulators appear in ES as long as they have ROMs in them. Simply remove the ROM files from `~/RetroPie/roms/<emulator>/` and they will disappear from ES. You can also just create a hidden folder in `~/RetroPie/roms` (i.e. `~/RetroPie/roms/.unused`) and move the emulator folder there.
+
 ## Common Commands
 
 - When you're in Emulation Station, you can exit to Shell by pressing `F4` followed by any key. Note that this is assuming default key mapping.
 - When you're in Shell, you can start Emulation Station via `emulationstation`.
 - To shutdown the Pi: `sudo shutdown -h now`
 - To reboot the Pi: `sudo reboot`
-
-## Pairing PS4 Controller via Bluetooth
-
-1. `sudo ~/RetroPie-Setup/retropie_setup.sh`
-2. **COnfiguration / tools** -> **804 bluetooth** -> **Register and Connect to Bluetooth Device**
-3. Put PS4 controller in pairing mode by holding **Share** button first followed by **PS** button until the LED flashes
-4. When paired, choose the default security mode
 
 ## Caveats
 
