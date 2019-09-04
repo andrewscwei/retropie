@@ -32,9 +32,43 @@ This process takes a while. While waiting, you can sned a `SIGINFO` signal by pr
 
 After the image is copied over, you are done. You can insert the SD card to your RaspberryPi and boot up RetroPie for the first time.
 
-## Setup within RetroPie
+### First Boot
 
-Run the setup script at `~/RetroPie-Setup/retropie_setup.sh`.
+Upon booting up the RetroPie for the first time, it will run a few scripts to take care of the initial configurations. This may take a few minutes. On complete, the Pi will reboot itself. Do not manually restart the Pi if you see a lingering black screen, the Pi is just rebooting itself.
+
+Emulation Station will then be launched, and you will need to set up your first controller. A keyboard is recommended. Simply follow on-screen instructions.
+
+### Configure Wi-Fi
+
+Return to Shell (pres `F4`).
+
+```sh
+$ sudo raspi-config
+```
+
+Configure **Network Options**, then follow through with setting the SSID and password.
+
+### Configure SSH
+
+In `raspi-config`, go to **Interfacing Options** and enable SSH there.
+
+### Configuring the Display
+
+If you see that the display is not fullscreen, do the following:
+
+```sh
+sudo nano /boot/config.txt
+```
+
+Uncomment `# disable_overscan=1`.
+
+### Changing the splash screen
+
+SSH/SFTP into the Pi and copy your splash image to `/home/pi/RetroPie/splashscreens`. Then from Emulation Station, go to RetroPie setup -> **Change splashscreen**.
+
+## Updating RetroPie
+
+Run the setup script at `~/RetroPie-Setup/retropie_setup.sh`. First choose to update the setup script, then select **Update** to update all packages.
 
 ## Connecting to the RetroPie via SFTP
 
@@ -47,7 +81,7 @@ Ensure you are connected to the same network as the RetroPie, then use any metho
 - Password: `raspberry` (default)
 
 To obtain the host address of the RetroPie. Either use its external IP or its host name, if available:
-  - To get the IP, run `ifconfig` (it's also displayed at the top when you start its shell)
+  - To get the IP, run `ifconfig` (it's also displayed at the top when you start its Shell)
   - To get the host name, run `hostname -f`
 
 ## File System Overview
@@ -73,11 +107,11 @@ Simply add/remove ROMs to manage your games.
 
 ## Shortcuts
 
-- When you're in Emulation Station, you can exit to shell by pressing `F4` followed by any key. Note that this is assuming default key mapping.
-- When you're in shell, you can start Emulation Station via `emulationstation`.
+- When you're in Emulation Station, you can exit to Shell by pressing `F4` followed by any key. Note that this is assuming default key mapping.
+- When you're in Shell, you can start Emulation Station via `emulationstation`.
 - To shutdown the Pi: `sudo shutdown -h now`
 - To reboot the Pi: `sudo reboot`
 
 ## Caveats
 
-1. If you are having issues typing `~` in RetroPie shell, try `Shift` + `\`.
+1. If you are having issues typing `~` in RetroPie Shell, try `Shift` + `\`.
