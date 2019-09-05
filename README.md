@@ -64,15 +64,13 @@ If you see that the display is not fullscreen:
 1. SSH/SFTP into the Pi and copy your splash image to `/home/pi/RetroPie/splashscreens`
 2. From Emulation Station menu, go to RetroPie -> **Splash Screens** -> **Choose splashscreen** -> **Own/Extra splashscreens**
 
-## File System Overview
-
-### BIOS
+## BIOS
 
 > Location: `~/RetroPie/BIOS`
 
 Some emulators require designated BIOS files to run. BIOS files are not included by default. Seek official docs to determine what BIOS files are required for the emulators you intend to use.
 
-### ROMs
+## ROMs
 
 > Location: `~/RetroPie/roms`
 
@@ -80,9 +78,11 @@ Some emulators require designated BIOS files to run. BIOS files are not included
 
 Simply add/remove ROMs to manage your games.
 
-### Emulator Configurations
+## Emulator Configurations
 
 > Location: `opts/retropie/configs`
+
+Edit `retroarch.cfg` of respective emulators.
 
 ## Updating
 
@@ -139,7 +139,7 @@ Chances are it just works for your theme, but if not you might find some success
 
 ## Changing Game Titles
 
-Edit `/opt/retropie/configs/all/emulationstation/gamelists/<emulator>/gamelist.xml`.
+Copy `/opt/retropie/configs/all/emulationstation/gamelists/<emulator>/gamelist.xml` to `~/RetroPie/roms/<emulator>/gamelist.xml`, and edit it there.
 
 ## In-game Shortcuts
 
