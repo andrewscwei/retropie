@@ -127,6 +127,11 @@ To obtain the host address of the RetroPie. Either use its external IP or its ho
 
 Emulators appear in ES as long as they have ROMs in them. Simply remove the ROM files from `~/RetroPie/roms/<emulator>/` and they will disappear from ES. You can also just create a hidden folder in `~/RetroPie/roms` (i.e. `~/RetroPie/roms/.unused`) and move the emulator folder there.
 
+## In-game Shortcuts
+
+- To acess the RGUI on keyboard: `Hotkey + F1`
+- To acess the RGUI on controller: `Hotkey + X`
+
 ## Common Commands
 
 - When you're in Emulation Station, you can exit to Shell by pressing `F4` followed by any key. Note that this is assuming default key mapping.
