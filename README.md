@@ -127,6 +127,20 @@ To obtain the host address of the RetroPie. Either use its external IP or its ho
 
 Emulators appear in ES as long as they have ROMs in them. Simply remove the ROM files from `~/RetroPie/roms/<emulator>/` and they will disappear from ES. You can also just create a hidden folder in `~/RetroPie/roms` (i.e. `~/RetroPie/roms/.unused`) and move the emulator folder there.
 
+## Support Multiple Languages
+
+Install the following unicode fallback font:
+
+```sh
+$ sudo apt-get install fonts-droid-fallback
+```
+
+Chances are it just works for your theme, but if not you might find some success modifying `/etc/emulationstation/themes/<theme_name>/theme.xml`.
+
+## Changing Game Titles
+
+Edit `/opt/retropie/configs/all/emulationstation/gamelists/<emulator>/gamelist.xml`.
+
 ## In-game Shortcuts
 
 - To acess the RGUI on keyboard: `Hotkey + F1`
