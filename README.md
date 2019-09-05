@@ -141,6 +141,14 @@ Chances are it just works for your theme, but if not you might find some success
 
 Copy `/opt/retropie/configs/all/emulationstation/gamelists/<emulator>/gamelist.xml` to `~/RetroPie/roms/<emulator>/gamelist.xml`, and edit it there.
 
+## Better Scraping
+
+> Official docs: https://github.com/RetroPie/RetroPie-Setup/wiki/scraper
+
+1. `sudo ~/RetroPie-Setup/retropie_setup.sh`
+2. **Manage packages** -> **Manage optional packages**
+3. Look for **scraper** in the list and install
+
 ## In-game Shortcuts
 
 - To acess the RGUI on keyboard: `Hotkey + F1`
