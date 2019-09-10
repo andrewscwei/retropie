@@ -115,7 +115,7 @@ Ensure you are connected to the same network as the RetroPie, then use any metho
 To obtain the host address of the RetroPie. Either use its external IP or its host name, if available:
   - To get the IP, run `ifconfig` (it's also displayed at the top when you start its Shell)
   - To get the host name, run `hostname -f`
-  
+
 ## Connecting to the RetroPie via SSH
 
 ### Via Wi-Fi
@@ -143,6 +143,21 @@ Assuming you are on a Mac, first, enable network sharing on the ethernet cable:
 2. **Configuration / tools** -> **804 bluetooth** -> **Register and Connect to Bluetooth Device**
 3. Put PS4 controller in pairing mode by holding **Share** button first followed by **PS** button until the LED flashes
 4. When paired, choose the default (`DisplayYesNo`) as security mode
+
+## Key Mapping
+
+> Official docs: https://github.com/RetroPie/RetroPie-Setup/wiki/RetroArch-Configuration#hardcoded-configurations
+
+You can map your keys from ES by pressing the Start menu and selecting **Configure Input**, then following the on-screen instructions.
+
+To customize keys manually through the config files, note the following behavior. RetroArch has a global key mapping file stored at `/opt/retropie/configs/all/retroarch.cfg`. This file is used by all emulators. You can override the settings defined in this file per emulator by modifying `/opt/retropie/configs/<emulator>/retroarch.cfg`.
+
+For wireless controllers such as the PS4 controller, things are a bit different. The global key mapping config files for wireless controllers are stored in `/opt/retropie/configs/all/retroarch-joypads`, which symlinks to `/opt/retropie/configs/all/retroarch/autoconfig/`. To override wireless controller mappings for specific emulators, do the following:
+
+1. Create a new directory called `retroarch-joypads` in `/opt/retropie/configs/<emulator>`.
+2. Edit `/opt/retropie/configs/<emulator>/retroarch.cfg` and add this line `joypad_autoconfig_dir = "/opt/retropie/configs/<emulator>/retroarch-joypads/"` before the `#import` line.
+3. Copy `/opt/retropie/configs/all/retroarch-joypads/Wireless Controller.cfg` (or equivalent) to `/opt/retropie/configs/<emulator>/retroarch-joypads`.
+4. Override your key mappings in `/opt/retropie/configs/<emulator>/retroarch-joypads/Wireless Controller.cfg` (or equivalent).
 
 ## Hiding Certain Emulators
 
